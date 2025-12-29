@@ -7,75 +7,59 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        html { scroll-behavior: smooth; }
         .gradient-text {
             background: linear-gradient(90deg, #2563eb, #0891b2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .opp-card:hover { transform: scale(1.02); transition: 0.2s; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
 
-    <nav class="p-6 bg-white shadow-sm flex justify-between items-center px-8 md:px-20">
+    <nav class="sticky top-0 z-50 p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center px-8 md:px-20">
         <h1 class="text-2xl font-black tracking-tight text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
         <div class="hidden md:flex space-x-8 font-semibold text-gray-500">
             <a href="#" class="hover:text-blue-600">Home</a>
+            <a href="#opportunities" class="hover:text-blue-600">Opportunities</a>
             <a href="#contact" class="hover:text-blue-600">Contact</a>
         </div>
-        <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">Get Involved</a>
+        <a href="mailto:oliverpinto3953@gmail.com" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">Join the Squad</a>
     </nav>
 
-    <header class="text-center py-24 px-4">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-            Where Every Hour <br><span class="gradient-text">Matters.</span>
+    <header class="text-center py-20 px-4">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-gray-900">
+            Impact Over <br><span class="gradient-text">Everything.</span>
         </h2>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
-            VolunteerAid is a movement of dedicated individuals committed to real-world change. We track our impact by the minute, because results don't lie.
-        </p>
         
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                <i class="fas fa-clock text-3xl text-blue-500 mb-4"></i>
-                <div class="text-5xl font-black text-gray-900">80,000+</div>
-                <div class="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Volunteer Hours</div>
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <div class="text-5xl font-black text-blue-600">80,000+</div>
+                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Hours Logged</div>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                <i class="fas fa-users text-3xl text-blue-500 mb-4"></i>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                 <div class="text-5xl font-black text-gray-900">1,250</div>
-                <div class="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Active Members</div>
+                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Elite Volunteers</div>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                <i class="fas fa-globe-americas text-3xl text-blue-500 mb-4"></i>
-                <div class="text-5xl font-black text-gray-900">100+</div>
-                <div class="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2">Projects Finished</div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <div class="text-5xl font-black text-gray-900">100%</div>
+                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Effort Provided</div>
             </div>
         </div>
     </header>
 
-    <section class="bg-blue-600 py-16 text-center text-white">
-        <h3 class="text-3xl font-bold mb-4">Ready to add your hours to the total?</h3>
-        <p class="text-blue-100 mb-8 max-w-xl mx-auto">Join a team of elite volunteers and start making a visible difference in your community today.</p>
-        <a href="mailto:oliverpinto3953@gmail.com" class="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-gray-100 transition inline-block">
-            Apply to Join
-        </a>
-    </section>
-
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-10">Get In Touch</h3>
-            <div class="flex flex-col items-center space-y-4">
-                <div class="bg-gray-50 p-6 rounded-xl w-full max-w-md border border-gray-200">
-                    <p class="text-sm text-gray-400 uppercase font-bold tracking-widest mb-1">Director of Operations</p>
-                    <p class="text-xl font-black text-gray-800">Oliver Pinto</p>
-                    <a href="mailto:oliverpinto3953@gmail.com" class="text-blue-600 font-bold hover:underline">oliverpinto3953@gmail.com</a>
+    <section id="opportunities" class="py-20 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h3 class="text-4xl font-black text-gray-900">LIVE OPPORTUNITIES</h3>
+                    <p class="text-gray-500 font-medium">Claim your spot. Make your mark.</p>
+                </div>
+                <div class="hidden md:block text-blue-600 font-bold uppercase tracking-widest text-sm italic">
+                    Updated Daily
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="py-10 text-center border-t border-gray-100 text-gray-400 text-sm">
-        <p>© 2025 VolunteerAid Organization. All Rights Reserved.</p>
-    </footer>
-
-</body>
-</html>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="opp
