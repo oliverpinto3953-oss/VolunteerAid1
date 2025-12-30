@@ -13,6 +13,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .opp-card { transition: all 0.3s ease; }
+        .opp-card:hover { transform: translateY(-5px); }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
@@ -25,67 +27,65 @@
                 <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 transition flex items-center">
                     Menu <i class="fas fa-chevron-down ml-2 text-xs"></i>
                 </button>
-
                 <div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
-                    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">
-                        <i class="fas fa-home mr-2"></i> Home
-                    </a>
-                    <a href="#opportunities" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">
-                        <i class="fas fa-briefcase mr-2"></i> Opportunities
-                    </a>
-                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">
-                        <i class="fas fa-external-link-alt mr-2 text-blue-500"></i> External Resources
-                    </a>
-                    <a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">
-                        <i class="fas fa-envelope mr-2"></i> Contact Us
-                    </a>
+                    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#opportunities" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">Opportunities</a>
+                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">External Resources</a>
+                    <a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">Contact Us</a>
                 </div>
             </div>
-
-            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition hidden md:block">
-                Copy Email
-            </button>
+            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition hidden md:block">Copy Email</button>
         </div>
     </nav>
 
-    <header class="text-center py-20 px-4">
+    <header class="text-center py-16 px-4">
         <h2 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-gray-900 leading-tight">
             Impact Over <br><span class="gradient-text tracking-tighter">Everything.</span>
         </h2>
-        
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-                <div class="text-5xl font-black text-blue-600">80,000+</div>
-                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Total Hours</div>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-                <div id="impact-timer" class="text-5xl font-black text-gray-900">0</div>
-                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Seconds Today</div>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-                <div class="text-5xl font-black text-gray-900">1,250</div>
-                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Elite Volunteers</div>
-            </div>
-        </div>
+        <div id="impact-timer" class="text-4xl font-black text-blue-600 mt-4">0</div>
+        <p class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Seconds of Action Today</p>
     </header>
 
-    <section id="contact" class="py-24 bg-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="bg-blue-50 p-10 rounded-[3rem] border-2 border-blue-100 inline-block w-full shadow-sm">
-                <p class="text-4xl font-black text-gray-900 mb-4">Oliver Pinto</p>
-                <p class="text-xl text-gray-500 mb-8">oliverpinto3953@gmail.com</p>
-                <button onclick="copyEmail()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition">
-                    <i class="far fa-copy mr-2"></i> Copy Email
-                </button>
+    <section id="opportunities" class="py-20 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-black text-gray-900 mb-4 uppercase italic">Live Deployments</h3>
+                <input type="text" id="oppSearch" onkeyup="filterOpps()" placeholder="Search (food, animal, etc)..." 
+                       class="w-full max-w-lg p-4 rounded-xl border-2 border-gray-200 shadow-sm focus:border-blue-500 focus:outline-none">
+            </div>
+
+            <div id="oppContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-orange-500">
+                    <span class="bg-orange-100 text-orange-600 text-xs font-black px-2 py-1 rounded">HIGH NEED</span>
+                    <h4 class="text-xl font-bold mt-4 mb-2 opp-title">NC Food Bank</h4>
+                    <p class="text-gray-600 text-sm mb-8 italic">"Sorting and packing emergency food boxes for local families."</p>
+                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply to Help</a>
+                </div>
+
+                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-purple-500">
+                    <span class="bg-purple-100 text-purple-600 text-xs font-black px-2 py-1 rounded">LOCAL IMPACT</span>
+                    <h4 class="text-xl font-bold mt-4 mb-2 opp-title">Pitt County Animal Services</h4>
+                    <p class="text-gray-600 text-sm mb-8 italic">"Shelter support, dog walking, and animal care assistance."</p>
+                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply to Help</a>
+                </div>
+
+                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-green-500">
+                    <span class="bg-green-100 text-green-600 text-xs font-black px-2 py-1 rounded">ENVIRONMENTAL</span>
+                    <h4 class="text-xl font-bold mt-4 mb-2 opp-title">Coastal Cleanup</h4>
+                    <p class="text-gray-600 text-sm mb-8 italic">"Ocean conservation and waste management efforts."</p>
+                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply to Help</a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-gray-900 text-center text-gray-500 text-xs">
-        <p>© 2025 VolunteerAid | Lead by Oliver Pinto</p>
-    </footer>
+    <section id="contact" class="py-24 bg-white text-center">
+        <p class="text-4xl font-black text-gray-900 mb-4">Contact Oliver Pinto</p>
+        <button onclick="copyEmail()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition">Copy Email</button>
+    </section>
 
     <script src="script.js"></script>
-
 </body>
 </html>
