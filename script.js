@@ -1,38 +1,44 @@
-// 1. Function to show/hide the dropdown menu
+// Dropdown Toggle
 function toggleDropdown() {
     const dropdown = document.getElementById("myDropdown");
-    // This removes 'hidden' to show the menu, or adds it back to hide it
     dropdown.classList.toggle("hidden");
 }
 
-// 2. Function to copy your email (Fixes the "not defined" error)
-function copyEmail() {
-    const email = 'oliverpinto3953@gmail.com';
-    navigator.clipboard.writeText(email).then(() => {
-        alert('Email copied to clipboard!');
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-    });
+// Leaderboard Modal Toggle
+function toggleLeaderboard() {
+    const modal = document.getElementById("leaderboardModal");
+    modal.style.display = (modal.style.display === "flex") ? "none" : "flex";
 }
 
-// 3. Logic for the "Impact Timer"
-function updateImpactTimer() {
-    const now = new Date();
-    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const secondsSinceStart = Math.floor((now - startOfDay) / 1000);
-    const timerElement = document.getElementById('impact-timer');
-    if (timerElement) {
-        timerElement.textContent = secondsSinceStart.toLocaleString();
+// Search Filter for Opportunities
+function filterOpps() {
+    let input = document.getElementById('oppSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('opp-card');
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector('.opp-title').innerText.toLowerCase();
+        cards[i].style.display = title.includes(input) ? "" : "none";
     }
 }
 
-// Start the timer and update it every second
-setInterval(updateImpactTimer, 1000);
-updateImpactTimer();
+// Copy Email Function
+function copyEmail() {
+    navigator.clipboard.writeText('oliverpinto3953@gmail.com');
+    alert('Email copied to clipboard!');
+}
 
-// 4. Close the dropdown if you click outside of it
+// Live Timer Logic
+function updateTimer() {
+    const now = new Date();
+    const seconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+    const timer = document.getElementById('impact-timer');
+    if (timer) timer.innerText = seconds.toLocaleString();
+}
+setInterval(updateTimer, 1000);
+updateTimer();
+
+// Close dropdown if clicked outside
 window.onclick = function(event) {
-    if (!event.target.matches('button')) {
+    if (!event.target.matches('button') && !event.target.closest('.relative')) {
         const dropdown = document.getElementById("myDropdown");
         if (dropdown && !dropdown.classList.contains('hidden')) {
             dropdown.classList.add('hidden');
