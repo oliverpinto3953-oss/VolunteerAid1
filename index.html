@@ -1,21 +1,91 @@
-<nav class="sticky top-0 z-50 p-6 bg-white shadow-sm flex justify-between items-center px-8">
-    <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
-    
-    <div class="flex space-x-4 items-center">
-        <div class="relative inline-block text-left">
-            <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-200 transition">
-                Menu <i class="fas fa-caret-down ml-2"></i>
-            </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolunteerAid | Direct Impact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #0891b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
 
-            <div id="myDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-2">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Home</a>
-                <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">External Resources</a>
-                <a href="#opportunities" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Opportunities</a>
-                <hr class="my-1">
-                <a href="#contact" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Contact Us</a>
+    <nav class="sticky top-0 z-50 p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center px-8 md:px-20">
+        <h1 class="text-2xl font-black tracking-tight text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
+        
+        <div class="flex items-center space-x-4">
+            <div class="relative">
+                <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 transition flex items-center">
+                    Menu <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                </button>
+
+                <div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
+                    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                    <a href="#opportunities" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">
+                        <i class="fas fa-briefcase mr-2"></i> Opportunities
+                    </a>
+                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">
+                        <i class="fas fa-external-link-alt mr-2 text-blue-500"></i> External Resources
+                    </a>
+                    <a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">
+                        <i class="fas fa-envelope mr-2"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition hidden md:block">
+                Copy Email
+            </button>
+        </div>
+    </nav>
+
+    <header class="text-center py-20 px-4">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-gray-900 leading-tight">
+            Impact Over <br><span class="gradient-text tracking-tighter">Everything.</span>
+        </h2>
+        
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
+                <div class="text-5xl font-black text-blue-600">80,000+</div>
+                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Total Hours</div>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
+                <div id="impact-timer" class="text-5xl font-black text-gray-900">0</div>
+                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Seconds Today</div>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
+                <div class="text-5xl font-black text-gray-900">1,250</div>
+                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Elite Volunteers</div>
             </div>
         </div>
+    </header>
 
-        <button onclick="copyEmail()" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700">Copy Email</button>
-    </div>
-</nav>
+    <section id="contact" class="py-24 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-blue-50 p-10 rounded-[3rem] border-2 border-blue-100 inline-block w-full shadow-sm">
+                <p class="text-4xl font-black text-gray-900 mb-4">Oliver Pinto</p>
+                <p class="text-xl text-gray-500 mb-8">oliverpinto3953@gmail.com</p>
+                <button onclick="copyEmail()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition">
+                    <i class="far fa-copy mr-2"></i> Copy Email
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-gray-900 text-center text-gray-500 text-xs">
+        <p>© 2025 VolunteerAid | Lead by Oliver Pinto</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
