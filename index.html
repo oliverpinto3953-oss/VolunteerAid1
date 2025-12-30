@@ -15,6 +15,11 @@
         }
         .opp-card { transition: all 0.3s ease; }
         .opp-card:hover { transform: translateY(-5px); }
+        /* Modal background overlay */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none; /* Hidden by default */
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
@@ -23,18 +28,22 @@
         <h1 class="text-2xl font-black tracking-tight text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
         
         <div class="flex items-center space-x-4">
+            <button onclick="toggleLeaderboard()" class="hidden md:flex items-center text-gray-600 font-bold hover:text-blue-600 transition">
+                <i class="fas fa-trophy mr-2 text-yellow-500"></i> Leaderboard
+            </button>
+
             <div class="relative">
                 <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 transition flex items-center">
                     Menu <i class="fas fa-chevron-down ml-2 text-xs"></i>
                 </button>
                 <div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
-                    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">Home</a>
-                    <a href="#opportunities" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium">Opportunities</a>
-                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">External Resources</a>
-                    <a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium border-t">Contact Us</a>
+                    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-50">Home</a>
+                    <button onclick="toggleLeaderboard()" class="w-full text-left block px-4 py-3 text-gray-700 hover:bg-blue-50 md:hidden font-medium">Leaderboard</button>
+                    <a href="#opportunities" class="block px-4 py-3 text-gray-700 hover:bg-blue-50">Opportunities</a>
+                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 border-t">External Resources</a>
                 </div>
             </div>
-            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition hidden md:block">Copy Email</button>
+            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">Copy Email</button>
         </div>
     </nav>
 
@@ -55,37 +64,22 @@
             </div>
 
             <div id="oppContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
                 <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-orange-500">
                     <span class="bg-orange-100 text-orange-600 text-xs font-black px-2 py-1 rounded">HIGH NEED</span>
                     <h4 class="text-xl font-bold mt-4 mb-2 opp-title">NC Food Bank</h4>
-                    <p class="text-gray-600 text-sm mb-8 italic">"Sorting and packing emergency food boxes for local families."</p>
-                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply to Help</a>
+                    <p class="text-gray-600 text-sm mb-8 italic">"Sorting and packing emergency food boxes."</p>
+                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white">Apply to Help</a>
                 </div>
 
                 <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-purple-500">
                     <span class="bg-purple-100 text-purple-600 text-xs font-black px-2 py-1 rounded">LOCAL IMPACT</span>
                     <h4 class="text-xl font-bold mt-4 mb-2 opp-title">Pitt County Animal Services</h4>
-                    <p class="text-gray-600 text-sm mb-8 italic">"Shelter support, dog walking, and animal care assistance."</p>
-                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply to Help</a>
+                    <p class="text-gray-600 text-sm mb-8 italic">"Shelter support and animal care assistance."</p>
+                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white">Apply to Help</a>
                 </div>
-
-                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-green-500">
-                    <span class="bg-green-100 text-green-600 text-xs font-black px-2 py-1 rounded">ENVIRONMENTAL</span>
-                    <h4 class="text-xl font-bold mt-4 mb-2 opp-title">Coastal Cleanup</h4>
-                    <p class="text-gray-600 text-sm mb-8 italic">"Ocean conservation and waste management efforts."</p>
-                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply to Help</a>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-white text-center">
-        <p class="text-4xl font-black text-gray-900 mb-4">Contact Oliver Pinto</p>
-        <button onclick="copyEmail()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition">Copy Email</button>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <div id="leaderboardModal" class="modal-overlay fixed inset-0 z-[200] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl w
