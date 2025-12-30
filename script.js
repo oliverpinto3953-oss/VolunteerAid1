@@ -1,17 +1,27 @@
-alert("JavaScript is connected!");
-// Dropdown Toggle
+// Toggle the Menu Dropdown
 function toggleDropdown() {
     const dropdown = document.getElementById("myDropdown");
     dropdown.classList.toggle("hidden");
 }
 
-// Leaderboard Modal Toggle
+// Toggle the Leaderboard Popup
 function toggleLeaderboard() {
     const modal = document.getElementById("leaderboardModal");
-    modal.style.display = (modal.style.display === "flex") ? "none" : "flex";
+    // This switches the display from 'none' to 'flex'
+    if (modal.style.display === "flex") {
+        modal.style.display = "none";
+    } else {
+        modal.style.display = "flex";
+    }
 }
 
-// Search Filter for Opportunities
+// Copy Email
+function copyEmail() {
+    navigator.clipboard.writeText('oliverpinto3953@gmail.com');
+    alert('Email copied to clipboard!');
+}
+
+// Search Filter
 function filterOpps() {
     let input = document.getElementById('oppSearch').value.toLowerCase();
     let cards = document.getElementsByClassName('opp-card');
@@ -21,13 +31,7 @@ function filterOpps() {
     }
 }
 
-// Copy Email Function
-function copyEmail() {
-    navigator.clipboard.writeText('oliverpinto3953@gmail.com');
-    alert('Email copied to clipboard!');
-}
-
-// Live Timer Logic
+// Seconds Timer
 function updateTimer() {
     const now = new Date();
     const seconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
@@ -36,13 +40,3 @@ function updateTimer() {
 }
 setInterval(updateTimer, 1000);
 updateTimer();
-
-// Close dropdown if clicked outside
-window.onclick = function(event) {
-    if (!event.target.matches('button') && !event.target.closest('.relative')) {
-        const dropdown = document.getElementById("myDropdown");
-        if (dropdown && !dropdown.classList.contains('hidden')) {
-            dropdown.classList.add('hidden');
-        }
-    }
-}
