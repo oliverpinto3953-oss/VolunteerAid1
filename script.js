@@ -1,3 +1,4 @@
+alert("JavaScript is connected!");
 // Dropdown Toggle
 function toggleDropdown() {
     const dropdown = document.getElementById("myDropdown");
