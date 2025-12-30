@@ -13,8 +13,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* This ensures the leaderboard popup is HIDDEN until you click the button */
-        #leaderboardModal { display: none; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
@@ -23,48 +21,47 @@
         <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
         
         <div class="flex items-center space-x-4">
-            <button onclick="toggleLeaderboard()" class="hidden md:block font-bold text-gray-600 hover:text-blue-600">
-                <i class="fas fa-trophy text-yellow-500 mr-1"></i> Leaderboard
-            </button>
-
             <div class="relative">
-                <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 flex items-center">
+                <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 flex items-center transition">
                     Menu <i class="fas fa-chevron-down ml-2 text-xs"></i>
                 </button>
                 <div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
                     <a href="#" class="block px-4 py-3 hover:bg-blue-50">Home</a>
-                    <button onclick="toggleLeaderboard()" class="w-full text-left block px-4 py-3 hover:bg-blue-50 md:hidden">Leaderboard</button>
                     <a href="#opportunities" class="block px-4 py-3 hover:bg-blue-50">Opportunities</a>
-                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-blue-600 border-t hover:bg-blue-50 font-bold">External Resources</a>
+                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-blue-600 border-t hover:bg-blue-50 font-bold italic">
+                        <i class="fas fa-external-link-alt mr-2"></i>External Resources
+                    </a>
                 </div>
             </div>
-            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700">Copy Email</button>
+            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
+                Copy Email
+            </button>
         </div>
     </nav>
 
-    <header class="text-center py-12 px-4">
-        <h2 class="text-5xl font-extrabold mb-4">Impact Over <span class="gradient-text">Everything.</span></h2>
+    <header class="text-center py-16 px-4">
+        <h2 class="text-5xl font-extrabold mb-4 tracking-tight">Impact Over <span class="gradient-text">Everything.</span></h2>
         <div id="impact-timer" class="text-4xl font-black text-blue-600">0</div>
-        <p class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Seconds Today</p>
+        <p class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Seconds of Action Today</p>
     </header>
 
     <section id="opportunities" class="py-16 bg-gray-100">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-10">
-                <h3 class="text-3xl font-black mb-4 uppercase italic">Live Deployments</h3>
-                <input type="text" id="oppSearch" onkeyup="filterOpps()" placeholder="Search (food, animal, etc)..." 
-                       class="w-full max-w-lg p-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 outline-none shadow-sm">
+                <h3 class="text-3xl font-black mb-4 uppercase italic tracking-tighter text-gray-800">Live Deployments</h3>
+                <input type="text" id="oppSearch" onkeyup="filterOpps()" placeholder="Search opportunities (e.g. food)..." 
+                       class="w-full max-w-lg p-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 outline-none shadow-sm transition">
             </div>
 
             <div id="oppContainer" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-orange-500">
-                    <h4 class="text-xl font-bold opp-title">NC Food Bank</h4>
+                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-orange-500 transition-transform hover:-translate-y-1">
+                    <h4 class="text-xl font-bold opp-title text-gray-900">NC Food Bank</h4>
                     <p class="text-gray-600 text-sm mt-2 mb-6 italic">"Sorting and packing emergency food boxes for local families."</p>
                     <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply Now</a>
                 </div>
 
-                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-purple-500">
-                    <h4 class="text-xl font-bold opp-title">Pitt County Animal Services</h4>
+                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-purple-500 transition-transform hover:-translate-y-1">
+                    <h4 class="text-xl font-bold opp-title text-gray-900">Pitt County Animal Services</h4>
                     <p class="text-gray-600 text-sm mt-2 mb-6 italic">"Shelter support, dog walking, and animal care assistance."</p>
                     <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply Now</a>
                 </div>
@@ -72,25 +69,9 @@
         </div>
     </section>
 
-    <div id="leaderboardModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60">
-        <div class="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden">
-            <div class="bg-blue-600 p-6 text-white flex justify-between items-center">
-                <h3 class="text-2xl font-black italic uppercase">Leaderboard</h3>
-                <button onclick="toggleLeaderboard()" class="text-3xl">&times;</button>
-            </div>
-            <div class="p-6 space-y-4">
-                <div class="flex justify-between p-4 bg-yellow-50 rounded-xl font-bold border border-yellow-100">
-                    <span>1. Oliver P.</span> <span>540 Hrs</span>
-                </div>
-                <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
-                    <span>2. Sarah K.</span> <span>320 Hrs</span>
-                </div>
-                <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
-                    <span>3. Mike D.</span> <span>215 Hrs</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <footer class="py-12 bg-white text-center">
+        <p class="text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">© 2025 VolunteerAid | Oliver Pinto</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
