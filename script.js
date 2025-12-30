@@ -1,78 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VolunteerAid | Direct Impact</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        html { scroll-behavior: smooth; }
-        .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #0891b2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+// 1. Toggle the Dropdown Menu
+function toggleDropdown() {
+    const dropdown = document.getElementById("myDropdown");
+    dropdown.classList.toggle("hidden");
+}
+
+// 2. Copy Email Function
+function copyEmail() {
+    const email = 'oliverpinto3953@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+        alert('Email copied to clipboard!');
+    });
+}
+
+// 3. Search Filter Function
+function filterOpps() {
+    let input = document.getElementById('oppSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('opp-card');
+    
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector('.opp-title').innerText.toLowerCase();
+        if (title.includes(input)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
         }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans text-gray-900">
+    }
+}
 
-    <nav class="sticky top-0 z-50 p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center px-8 md:px-20">
-        <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
-        
-        <div class="flex items-center space-x-4">
-            <div class="relative">
-                <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 flex items-center transition">
-                    Menu <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                </button>
-                <div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
-                    <a href="#" class="block px-4 py-3 hover:bg-blue-50">Home</a>
-                    <a href="#opportunities" class="block px-4 py-3 hover:bg-blue-50">Opportunities</a>
-                    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-blue-600 border-t hover:bg-blue-50 font-bold italic">
-                        <i class="fas fa-external-link-alt mr-2"></i>External Resources
-                    </a>
-                </div>
-            </div>
-            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
-                Copy Email
-            </button>
-        </div>
-    </nav>
+// 4. Daily Impact Timer (Seconds since midnight)
+function updateTimer() {
+    const now = new Date();
+    const seconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+    const timerDisplay = document.getElementById('impact-timer');
+    if (timerDisplay) {
+        timerDisplay.innerText = seconds.toLocaleString();
+    }
+}
 
-    <header class="text-center py-16 px-4">
-        <h2 class="text-5xl font-extrabold mb-4 tracking-tight">Impact Over <span class="gradient-text">Everything.</span></h2>
-        <div id="impact-timer" class="text-4xl font-black text-blue-600">0</div>
-        <p class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Seconds of Action Today</p>
-    </header>
+// Update timer every second
+setInterval(updateTimer, 1000);
+updateTimer();
 
-    <section id="opportunities" class="py-16 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <h3 class="text-3xl font-black mb-4 uppercase italic tracking-tighter text-gray-800">Live Deployments</h3>
-                <input type="text" id="oppSearch" onkeyup="filterOpps()" placeholder="Search opportunities (e.g. food)..." 
-                       class="w-full max-w-lg p-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 outline-none shadow-sm transition">
-            </div>
-
-            <div id="oppContainer" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-orange-500 transition-transform hover:-translate-y-1">
-                    <h4 class="text-xl font-bold opp-title text-gray-900">NC Food Bank</h4>
-                    <p class="text-gray-600 text-sm mt-2 mb-6 italic">"Sorting and packing emergency food boxes for local families."</p>
-                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply Now</a>
-                </div>
-
-                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-purple-500 transition-transform hover:-translate-y-1">
-                    <h4 class="text-xl font-bold opp-title text-gray-900">Pitt County Animal Services</h4>
-                    <p class="text-gray-600 text-sm mt-2 mb-6 italic">"Shelter support, dog walking, and animal care assistance."</p>
-                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Apply Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 bg-white text-center">
-        <p class="text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">© 2025 VolunteerAid | Oliver Pinto</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+// 5. Close dropdown if user clicks anywhere else on screen
+window.onclick = function(event) {
+    if (!event.target.matches('button') && !event.target.closest('.relative')) {
+        const dropdown = document.getElementById("myDropdown");
+        if (dropdown && !dropdown.classList.contains('hidden')) {
+            dropdown.classList.add('hidden');
+        }
+    }
+}
