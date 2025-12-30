@@ -1,67 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VolunteerAid | Direct Impact</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        html { scroll-behavior: smooth; }
-        .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #0891b2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .opp-card:hover { transform: translateY(-5px); transition: 0.3s; }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans text-gray-900">
+<nav class="sticky top-0 z-50 p-6 bg-white shadow-sm flex justify-between items-center px-8">
+    <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
+    
+    <div class="flex space-x-4 items-center">
+        <div class="relative inline-block text-left">
+            <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-200 transition">
+                Menu <i class="fas fa-caret-down ml-2"></i>
+            </button>
 
-    <nav class="sticky top-0 z-50 p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center px-8 md:px-20">
-        <h1 class="text-2xl font-black tracking-tight text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
-        <div class="hidden md:flex space-x-8 font-semibold text-gray-500 items-center">
-            <a href="#" class="hover:text-blue-600">Home</a>
-            <a href="#opportunities" class="hover:text-blue-600">Opportunities</a>
-            <a href="https://www.volunteermatch.org" target="_blank" class="hover:text-blue-600">External Resources <i class="fas fa-external-link-alt text-xs"></i></a>
-            <a href="#contact" class="hover:text-blue-600">Contact</a>
-        </div>
-        <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">Copy Email</button>
-    </nav>
-
-    <header class="text-center py-20 px-4">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-gray-900 leading-tight">
-            Impact Over <br><span class="gradient-text tracking-tighter">Everything.</span>
-        </h2>
-        
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <div class="text-5xl font-black text-blue-600">80,000+</div>
-                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2 italic">Total Hours Logged</div>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <div id="impact-timer" class="text-5xl font-black text-gray-900">0</div>
-                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2 italic">Seconds of Action Today</div>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <div class="text-5xl font-black text-gray-900">1,250</div>
-                <div class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2 italic">Elite Volunteers</div>
+            <div id="myDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-2">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Home</a>
+                <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">External Resources</a>
+                <a href="#opportunities" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Opportunities</a>
+                <hr class="my-1">
+                <a href="#contact" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Contact Us</a>
             </div>
         </div>
-    </header>
 
-    <section id="opportunities" class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h3 class="text-4xl font-black text-gray-900 mb-4 uppercase italic">Live Deployments</h3>
-                <p class="text-gray-500 font-medium mb-6">Search below or scroll to see where we need you most.</p>
-                <input type="text" id="oppSearch" onkeyup="filterOpps()" placeholder="Search (e.g. food, tech, beach)..." 
-                       class="w-full max-w-lg p-4 rounded-xl border-2 border-gray-200 shadow-sm focus:border-blue-500 focus:outline-none">
-            </div>
-
-            <div id="oppContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="opp-card bg-white p-8 rounded-2xl shadow-md border-t-8 border-red-500">
-                    <span class="bg-red-100 text-red-600 text-xs font-black px-2 py-1 rounded">URGENT</span>
-                    <h4 class="text-xl font-bold mt-4 mb-2 opp-title">Urban Food Drive</h4>
-                    <p class="text-gray-600 text-sm mb-8 italic">"Logistics and supply distribution."</p>
-                    <a href="mailto:oliverpinto3953@gmail.com" class="block text-center
+        <button onclick="copyEmail()" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700">Copy Email</button>
+    </div>
+</nav>
