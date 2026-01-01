@@ -16,11 +16,26 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
 
-    <nav class="p-6 bg-white shadow-sm flex justify-between items-center px-8 md:px-20">
+    <nav class="sticky top-0 z-50 p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center px-8 md:px-20">
         <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
-        <a href="index.html" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 transition">
-            <i class="fas fa-arrow-left mr-2"></i> Back Home
-        </a>
+        
+        <div class="flex items-center space-x-4">
+            <div class="relative">
+                <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 flex items-center transition">
+                    Menu <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                </button>
+                <div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
+                    <a href="index.html" class="block px-4 py-3 hover:bg-blue-50 transition">Home</a>
+                    <a href="leaderboard.html" class="block px-4 py-3 text-blue-600 font-bold hover:bg-blue-50 transition">
+                        <i class="fas fa-trophy text-yellow-500 mr-2"></i>Leaderboard
+                    </a>
+                    <a href="index.html#opportunities" class="block px-4 py-3 hover:bg-blue-50 transition">Opportunities</a>
+                </div>
+            </div>
+            <a href="index.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
+                Back Home
+            </a>
+        </div>
     </nav>
 
     <header class="text-center py-16 px-4">
@@ -38,7 +53,6 @@
             </div>
 
             <div class="divide-y divide-gray-100">
-                
                 <div class="grid grid-cols-3 p-8 items-center bg-yellow-50/50">
                     <span class="text-3xl">🥇</span>
                     <span class="font-bold text-xl">Oliver P.</span>
@@ -56,10 +70,8 @@
                     <span class="font-bold text-xl">Gordon F.</span>
                     <span class="text-right font-black text-blue-600 text-2xl">385</span>
                 </div>
-
             </div>
         </div>
-
         <p class="text-center text-gray-400 text-sm mt-8 italic">Interested in being listed? Complete a deployment and submit your hours.</p>
     </main>
 
@@ -67,5 +79,20 @@
         <p class="text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">© 2025 VolunteerAid | Oliver Pinto</p>
     </footer>
 
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("myDropdown");
+            dropdown.classList.toggle("hidden");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('button') && !event.target.closest('.relative')) {
+                const dropdown = document.getElementById("myDropdown");
+                if (dropdown && !dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
