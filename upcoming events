@@ -6,67 +6,66 @@
     <title>Leaderboard | VolunteerAid</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #0891b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
 
     <nav class="p-6 bg-white shadow-sm flex justify-between items-center px-8 md:px-20">
         <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
-        <a href="index.html" class="text-gray-600 font-bold hover:text-blue-600 transition">
-            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+        <a href="index.html" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 transition">
+            <i class="fas fa-arrow-left mr-2"></i> Back Home
         </a>
     </nav>
 
-    <main class="max-w-4xl mx-auto py-16 px-6">
-        <div class="text-center mb-12">
-            <i class="fas fa-trophy text-6xl text-yellow-500 mb-4"></i>
-            <h2 class="text-4xl font-black uppercase italic tracking-tighter">Impact Leaderboard</h2>
-            <p class="text-gray-500 mt-2">Celebrating our most active community members.</p>
-        </div>
+    <header class="text-center py-16 px-4">
+        <h2 class="text-5xl font-extrabold mb-4 tracking-tight">Top <span class="gradient-text">Impact makers.</span></h2>
+        <p class="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">Verified Volunteer Hours</p>
+    </header>
 
+    <main class="max-w-4xl mx-auto px-6 pb-20">
         <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+            
             <div class="grid grid-cols-3 bg-gray-900 text-white p-6 font-bold uppercase tracking-widest text-xs">
                 <span>Rank</span>
                 <span>Volunteer</span>
-                <span class="text-right">Hours</span>
+                <span class="text-right">Total Hours</span>
             </div>
 
             <div class="divide-y divide-gray-100">
-                <div class="grid grid-cols-3 p-6 items-center bg-yellow-50/50">
-                    <span class="text-2xl">🥇</span>
-                    <span class="font-bold text-lg">Oliver P.</span>
-                    <span class="text-right font-black text-blue-600 text-xl">540</span>
+                
+                <div class="grid grid-cols-3 p-8 items-center bg-yellow-50/50">
+                    <span class="text-3xl">🥇</span>
+                    <span class="font-bold text-xl">Oliver P.</span>
+                    <span class="text-right font-black text-blue-600 text-2xl">540</span>
                 </div>
 
-                <div class="grid grid-cols-3 p-6 items-center">
-                    <span class="text-2xl">🥈</span>
-                    <span class="font-bold text-lg">Sarah K.</span>
-                    <span class="text-right font-black text-blue-600 text-xl">320</span>
+                <div class="grid grid-cols-3 p-8 items-center">
+                    <span class="text-3xl">🥈</span>
+                    <span class="font-bold text-xl">Lucas M.</span>
+                    <span class="text-right font-black text-blue-600 text-2xl">412</span>
                 </div>
 
-                <div class="grid grid-cols-3 p-6 items-center">
-                    <span class="text-2xl">🥉</span>
-                    <span class="font-bold text-lg">Mike D.</span>
-                    <span class="text-right font-black text-blue-600 text-xl">215</span>
+                <div class="grid grid-cols-3 p-8 items-center">
+                    <span class="text-3xl">🥉</span>
+                    <span class="font-bold text-xl">Gordon F.</span>
+                    <span class="text-right font-black text-blue-600 text-2xl">385</span>
                 </div>
 
-                <div class="grid grid-cols-3 p-6 items-center hover:bg-gray-50 transition">
-                    <span class="font-bold text-gray-400 pl-2">4</span>
-                    <span class="font-bold">Jordan W.</span>
-                    <span class="text-right font-black text-gray-700">188</span>
-                </div>
-
-                <div class="grid grid-cols-3 p-6 items-center hover:bg-gray-50 transition">
-                    <span class="font-bold text-gray-400 pl-2">5</span>
-                    <span class="font-bold">Alex R.</span>
-                    <span class="text-right font-black text-gray-700">142</span>
-                </div>
             </div>
         </div>
 
-        <footer class="mt-12 text-center">
-            <p class="text-gray-400 text-sm italic">Stats update every 24 hours.</p>
-        </footer>
+        <p class="text-center text-gray-400 text-sm mt-8 italic">Interested in being listed? Complete a deployment and submit your hours.</p>
     </main>
+
+    <footer class="py-12 bg-white text-center border-t border-gray-100">
+        <p class="text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">© 2025 VolunteerAid | Oliver Pinto</p>
+    </footer>
 
 </body>
 </html>
