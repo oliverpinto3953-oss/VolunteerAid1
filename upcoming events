@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard | VolunteerAid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
 
+    <nav class="p-6 bg-white shadow-sm flex justify-between items-center px-8 md:px-20">
+        <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
+        <a href="index.html" class="text-gray-600 font-bold hover:text-blue-600 transition">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+        </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto py-16 px-6">
+        <div class="text-center mb-12">
+            <i class="fas fa-trophy text-6xl text-yellow-500 mb-4"></i>
+            <h2 class="text-4xl font-black uppercase italic tracking-tighter">Impact Leaderboard</h2>
+            <p class="text-gray-500 mt-2">Celebrating our most active community members.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+            <div class="grid grid-cols-3 bg-gray-900 text-white p-6 font-bold uppercase tracking-widest text-xs">
+                <span>Rank</span>
+                <span>Volunteer</span>
+                <span class="text-right">Hours</span>
+            </div>
+
+            <div class="divide-y divide-gray-100">
+                <div class="grid grid-cols-3 p-6 items-center bg-yellow-50/50">
+                    <span class="text-2xl">🥇</span>
+                    <span class="font-bold text-lg">Oliver P.</span>
+                    <span class="text-right font-black text-blue-600 text-xl">540</span>
+                </div>
+
+                <div class="grid grid-cols-3 p-6 items-center">
+                    <span class="text-2xl">🥈</span>
+                    <span class="font-bold text-lg">Sarah K.</span>
+                    <span class="text-right font-black text-blue-600 text-xl">320</span>
+                </div>
+
+                <div class="grid grid-cols-3 p-6 items-center">
+                    <span class="text-2xl">🥉</span>
+                    <span class="font-bold text-lg">Mike D.</span>
+                    <span class="text-right font-black text-blue-600 text-xl">215</span>
+                </div>
+
+                <div class="grid grid-cols-3 p-6 items-center hover:bg-gray-50 transition">
+                    <span class="font-bold text-gray-400 pl-2">4</span>
+                    <span class="font-bold">Jordan W.</span>
+                    <span class="text-right font-black text-gray-700">188</span>
+                </div>
+
+                <div class="grid grid-cols-3 p-6 items-center hover:bg-gray-50 transition">
+                    <span class="font-bold text-gray-400 pl-2">5</span>
+                    <span class="font-bold">Alex R.</span>
+                    <span class="text-right font-black text-gray-700">142</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center">
+            <p class="text-gray-400 text-sm italic">Stats update every 24 hours.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
