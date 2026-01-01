@@ -1,12 +1,26 @@
-<div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
-    <a href="index.html" class="block px-4 py-3 hover:bg-blue-50">Home</a>
+<nav class="sticky top-0 z-50 p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center px-8 md:px-20">
+    <h1 class="text-2xl font-black text-blue-600">VOLUNTEER<span class="text-gray-800">AID</span></h1>
     
-    <a href="leaderboard.html" class="block px-4 py-3 text-blue-600 font-bold hover:bg-blue-50 transition">
-        <i class="fas fa-trophy text-yellow-500 mr-2"></i>View Leaderboard
-    </a>
-    
-    <a href="#opportunities" class="block px-4 py-3 hover:bg-blue-50">Opportunities</a>
-    <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-gray-500 border-t hover:bg-blue-50 font-bold italic transition">
-        <i class="fas fa-external-link-alt mr-2"></i>External Resources
-    </a>
-</div>
+    <div class="flex items-center space-x-4">
+        <div class="relative">
+            <button onclick="toggleDropdown()" class="bg-gray-100 text-gray-700 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 flex items-center transition">
+                Menu <i class="fas fa-chevron-down ml-2 text-xs"></i>
+            </button>
+            <div id="myDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-[100] py-2">
+                <a href="index.html" class="block px-4 py-3 hover:bg-blue-50">Home</a>
+                
+                <a href="leaderboard.html" class="block px-4 py-3 text-blue-600 font-bold hover:bg-blue-50 transition">
+                    <i class="fas fa-trophy text-yellow-500 mr-2"></i>Leaderboard
+                </a>
+
+                <a href="#opportunities" class="block px-4 py-3 hover:bg-blue-50">Opportunities</a>
+                <a href="https://www.volunteermatch.org" target="_blank" class="block px-4 py-3 text-gray-400 border-t hover:bg-blue-50 font-bold italic">
+                    <i class="fas fa-external-link-alt mr-2"></i>External Resources
+                </a>
+            </div>
+        </div>
+        <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
+            Copy Email
+        </button>
+    </div>
+</nav>
