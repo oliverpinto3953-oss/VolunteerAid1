@@ -46,16 +46,16 @@
         <h2 class="text-5xl font-extrabold mb-12 tracking-tight">Impact Over <span class="gradient-text">Everything.</span></h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-                <div class="text-4xl font-black text-blue-600 mb-1">0</div>
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100 transition-transform hover:scale-105">
+                <div class="text-5xl font-black text-blue-600 mb-2">0</div>
                 <p class="text-xs font-black text-gray-400 uppercase tracking-widest">Total Hours Served</p>
             </div>
-            <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-                <div class="text-4xl font-black text-blue-600 mb-1">0</div>
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100 transition-transform hover:scale-105">
+                <div class="text-5xl font-black text-blue-600 mb-2">0</div>
                 <p class="text-xs font-black text-gray-400 uppercase tracking-widest">Active Volunteers</p>
             </div>
-            <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-                <div class="text-4xl font-black text-blue-600 mb-1">0</div>
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100 transition-transform hover:scale-105">
+                <div class="text-5xl font-black text-blue-600 mb-2">0</div>
                 <p class="text-xs font-black text-gray-400 uppercase tracking-widest">Places Impacted</p>
             </div>
         </div>
@@ -144,7 +144,6 @@
             }
         }
 
-        // Close dropdown when clicking outside
         window.onclick = function(event) {
             if (!event.target.matches('button') && !event.target.closest('.relative')) {
                 const dropdown = document.getElementById("myDropdown");
