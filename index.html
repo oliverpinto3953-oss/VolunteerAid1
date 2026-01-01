@@ -120,8 +120,34 @@
 
     <script>
         function toggleDropdown() {
-            document.getElementById("myDropdown").classList.toggle("hidden");
+            const dropdown = document.getElementById("myDropdown");
+            dropdown.classList.toggle("hidden");
         }
 
         function copyEmail() {
-            navigator.clipboard.writeText('oliverpinto3953@gmail
+            navigator.clipboard.writeText('oliverpinto3953@gmail.com').then(() => {
+                alert('Email copied to clipboard!');
+            });
+        }
+
+        function filterOpps() {
+            let input = document.getElementById('oppSearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('opp-card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].querySelector('.opp-title').innerText.toLowerCase();
+                cards[i].style.display = title.includes(input) ? "" : "none";
+            }
+        }
+
+        // Close menu if user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('button') && !event.target.closest('.relative')) {
+                const dropdown = document.getElementById("myDropdown");
+                if (dropdown && !dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
