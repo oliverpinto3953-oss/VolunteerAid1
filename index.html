@@ -49,11 +49,11 @@
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                <div class="text-5xl font-black text-blue-600 mb-2">925</div>
+                <div class="text-5xl font-black text-blue-600 mb-2">540</div>
                 <p class="text-xs font-black text-gray-400 uppercase tracking-widest">Total Hours Served</p>
             </div>
             <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                <div class="text-5xl font-black text-blue-600 mb-2">3</div>
+                <div class="text-5xl font-black text-blue-600 mb-2">2</div>
                 <p class="text-xs font-black text-gray-400 uppercase tracking-widest">Active Volunteers</p>
             </div>
             <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
@@ -102,11 +102,6 @@
                     </div>
                     <div class="grid grid-cols-3 p-8 items-center">
                         <span class="text-3xl">🥈</span>
-                        <span class="font-bold text-xl">Gordon F.</span>
-                        <span class="text-right font-black text-blue-600 text-2xl">385</span>
-                    </div>
-                    <div class="grid grid-cols-3 p-8 items-center">
-                        <span class="text-3xl text-center">3</span>
                         <span class="font-bold text-xl">Brody Pollard</span>
                         <span class="text-right font-black text-blue-600 text-2xl">0</span>
                     </div>
@@ -128,32 +123,3 @@
 
     <script>
         function toggleDropdown() {
-            document.getElementById("myDropdown").classList.toggle("hidden");
-        }
-
-        function copyEmail() {
-            navigator.clipboard.writeText('oliverpinto3953@gmail.com').then(() => {
-                alert('Email copied to clipboard!');
-            });
-        }
-
-        function filterOpps() {
-            let input = document.getElementById('oppSearch').value.toLowerCase();
-            let cards = document.getElementsByClassName('opp-card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].querySelector('.opp-title').innerText.toLowerCase();
-                cards[i].style.display = title.includes(input) ? "" : "none";
-            }
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('button') && !event.target.closest('.relative')) {
-                const dropdown = document.getElementById("myDropdown");
-                if (dropdown && !dropdown.classList.contains('hidden')) {
-                    dropdown.classList.add('hidden');
-                }
-            }
-        }
-    </script>
-</body>
-</html>
