@@ -38,10 +38,7 @@
                     <a href="#opportunities" class="block px-4 py-3 hover:bg-blue-50 transition">Opportunities</a>
                 </div>
             </div>
-            <button onclick="copyEmail()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
-                Copy Email
-            </button>
-        </div>
+            </div>
     </nav>
 
     <header class="text-center py-16 px-4 max-w-5xl mx-auto">
@@ -95,13 +92,13 @@
                     <span class="text-right">Hours</span>
                 </div>
                 <div class="divide-y divide-gray-200">
-                    <div class="grid grid-cols-3 p-8 items-center bg-yellow-50/30">
-                        <span class="text-3xl">🥇</span>
+                    <div class="grid grid-cols-3 p-8 items-center bg-blue-50/30">
+                        <span class="text-3xl text-center">1</span>
                         <span class="font-bold text-xl">Oliver P.</span>
                         <span class="text-right font-black text-blue-600 text-2xl">0</span>
                     </div>
                     <div class="grid grid-cols-3 p-8 items-center">
-                        <span class="text-3xl">🥈</span>
+                        <span class="text-3xl text-center">2</span>
                         <span class="font-bold text-xl">Brody Pollard</span>
                         <span class="text-right font-black text-blue-600 text-2xl">0</span>
                     </div>
@@ -124,12 +121,6 @@
     <script>
         function toggleDropdown() {
             document.getElementById("myDropdown").classList.toggle("hidden");
-        }
-
-        function copyEmail() {
-            navigator.clipboard.writeText('oliverpinto3953@gmail.com').then(() => {
-                alert('Email copied to clipboard!');
-            });
         }
 
         function filterOpps() {
